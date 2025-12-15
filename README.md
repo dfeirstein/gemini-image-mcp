@@ -42,6 +42,44 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 }
 ```
 
+### Zed Editor
+
+<details>
+<summary>Click to expand installation prompt for Zed</summary>
+
+Copy and paste this prompt to your Zed AI assistant:
+
+```
+Install the gemini-image MCP server for me. Here's what you need to do:
+
+1. Clone the repo and build it:
+   git clone https://github.com/dfeirstein/gemini-image-mcp.git ~/.config/zed/mcp-servers/gemini-image-mcp
+   cd ~/.config/zed/mcp-servers/gemini-image-mcp
+   npm install
+   npm run build
+
+2. Add this to my Zed settings.json under "context_servers":
+   {
+     "context_servers": {
+       "gemini-image": {
+         "command": {
+           "path": "node",
+           "args": ["~/.config/zed/mcp-servers/gemini-image-mcp/dist/index.js"],
+           "env": {
+             "GEMINI_API_KEY": "YOUR_API_KEY_HERE"
+           }
+         }
+       }
+     }
+   }
+
+3. Remind me to replace YOUR_API_KEY_HERE with my actual Gemini API key from https://aistudio.google.com/apikey
+
+The MCP provides three tools: generate_image, edit_image, and describe_image using Google's Gemini 3.0 (Nano Banana Pro) models.
+```
+
+</details>
+
 ## Get API Key
 
 Get a Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey).
